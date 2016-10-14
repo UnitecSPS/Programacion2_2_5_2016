@@ -5,8 +5,13 @@
  */
 package intro;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -54,5 +59,24 @@ public class TestCalendar {
             - Australia
             - Los Angeles
         */
+        
+        DateFormat formatter = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
+        TimeZone tokioT = TimeZone.getTimeZone("Asia/Tokyo");
+        Calendar cal = new GregorianCalendar();
+        formatter.setCalendar(cal);
+        formatter.setTimeZone(tokioT);
+        
+        String tiempoTokio = formatter.format(cal.getTime());
+        System.out.println("Tiempo en Japon: "+tiempoTokio);
+        
+        TimeZone austT = TimeZone.getTimeZone("Australia/Sidney");
+        formatter.setTimeZone(austT);
+        String tiempoAust = formatter.format(cal.getTime());
+        System.out.println("Tiempo en Australia: "+tiempoAust);
+        
+        TimeZone LAt = TimeZone.getTimeZone("America/Los_Angeles");
+        formatter.setTimeZone(LAt);
+        String tiempoLA = formatter.format(cal.getTime());
+        System.out.println("Tiempo en Los Angeles: "+tiempoLA);
     }
 }
