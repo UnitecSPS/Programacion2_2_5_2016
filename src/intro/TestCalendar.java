@@ -5,8 +5,12 @@
  */
 package intro;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  *
@@ -54,5 +58,17 @@ public class TestCalendar {
             - Australia
             - Los Angeles
         */
+        
+        Date cal = new Date();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        df.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
+        System.out.println("Tiempo actual en Tokyo es " + df.format(cal));
+        
+        df.setTimeZone(TimeZone.getTimeZone(" Australia/Sydney"));
+        System.out.println("Tiempo actual en Sydney es " + df.format(cal));
+        
+        df.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
+        System.out.println("Tiempo actual en Los Angeles es " + df.format(cal));
+        
     }
 }
