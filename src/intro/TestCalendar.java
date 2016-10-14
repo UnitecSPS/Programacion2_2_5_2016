@@ -5,8 +5,10 @@
  */
 package intro;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  *
@@ -54,5 +56,16 @@ public class TestCalendar {
             - Australia
             - Los Angeles
         */
+        //TOKIO
+        Calendar calendar=Calendar.getInstance();
+        tokio.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
+        System.out.printf("Hora Tokyo:\t %s\n", tokio.format(calendar.getTime()));
+        //AUSTRALIA
+        australia.setTimeZone(TimeZone.getTimeZone("Australia/Sydney"));
+        System.out.printf("Hora Australia:\t %s\n", australia.format(calendar.getTime()));
+        
+        //LOS ANGELES
+        losangeles.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
+        System.out.printf("Hora Los Angeles:\t %s\n", losangeles.format(calendar.getTime()));
     }
 }
