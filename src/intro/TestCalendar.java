@@ -5,8 +5,11 @@
  */
 package intro;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  *
@@ -54,5 +57,17 @@ public class TestCalendar {
             - Australia
             - Los Angeles
         */
+        Calendar local = Calendar.getInstance();
+        
+        SimpleDateFormat astok = new SimpleDateFormat("dd/MM/yyyy HH:mm:SS");
+        astok.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
+        System.out.println("Today in Tokyo: "+astok.format(local.getTime()));
+        SimpleDateFormat aust = new SimpleDateFormat("dd/MM/yyyy HH:mm:SS");
+        aust.setTimeZone(TimeZone.getTimeZone("Australia/ACT"));
+        System.out.println("Today in Australia: "+aust.format(local.getTime()));
+        SimpleDateFormat las = new SimpleDateFormat("dd/MM/yyyy HH:mm:SS");
+        las.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
+        System.out.println("Today in L.A.: "+las.format(local.getTime()));
+        
     }
 }
