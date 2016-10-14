@@ -15,6 +15,8 @@ public class ListaClase {
     public static void main(String[] args) {
         ArrayList<MiClase> lista = new ArrayList<>();
         lista.add(new MiClase(1));
-                
+        
+        for(MiClase mc : lista)
+            mc.print();
     }
 }
