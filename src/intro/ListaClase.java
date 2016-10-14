@@ -5,18 +5,16 @@
  */
 package intro;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Aula
  */
-public class MiClase {
-    private int codigo;
-
-    public MiClase(int cod) {
-        this.codigo = cod;
-    }
-
-    public void print(){
-        System.out.println(codigo);
+public class ListaClase {
+    public static void main(String[] args) {
+        ArrayList<MiClase> lista = new ArrayList<>();
+        lista.add(new MiClase(1));
+                
     }
 }
