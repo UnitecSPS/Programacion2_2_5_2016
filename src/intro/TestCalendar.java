@@ -58,13 +58,16 @@ public class TestCalendar {
         */
         //TOKIO
         Calendar calendar=Calendar.getInstance();
+        SimpleDateFormat tokio=new SimpleDateFormat("yyyy-MM-dd 'T'HH:mm:ss");
         tokio.setTimeZone(TimeZone.getTimeZone("Asia/Tokyo"));
         System.out.printf("Hora Tokyo:\t %s\n", tokio.format(calendar.getTime()));
         //AUSTRALIA
+        SimpleDateFormat australia=new SimpleDateFormat("yyyy-MM-dd 'T'HH:mm:ss");
         australia.setTimeZone(TimeZone.getTimeZone("Australia/Sydney"));
         System.out.printf("Hora Australia:\t %s\n", australia.format(calendar.getTime()));
         
         //LOS ANGELES
+        SimpleDateFormat losangeles=new SimpleDateFormat("yyyy-MM-dd 'T'HH:mm:ss");
         losangeles.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
         System.out.printf("Hora Los Angeles:\t %s\n", losangeles.format(calendar.getTime()));
     }
