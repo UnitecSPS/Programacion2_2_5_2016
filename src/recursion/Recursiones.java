@@ -48,4 +48,56 @@ public class Recursiones {
             return powDown(b, e-1, p*b);
         return p;
     }
+    
+    public int mcd(int n1, int n2){
+        return mcd(n1, n2, 2);
+    }
+    
+    private int mcd(int n1, int n2, int d) {
+        if(n1 >= d && n2 >= d){
+            if(n1 % d == 0 && n2 % d == 0){
+                return mcd(n1/d, n2/d, d) * d;
+            }
+            return mcd(n1, n2, d+1);
+        }
+        return 1;
+    }
+    
+    public void piramide(int filas){
+        piramide(filas, 1, 1);
+    }
+
+    private void piramide(int filas, int f, int c) {
+        if(f <= filas){
+            if(c <= f){
+                System.out.print("*");
+                piramide(filas,f,c+1);
+            }
+            else{
+                System.out.println("");
+                piramide(filas,f+1,1);
+            }
+        }
+    }
+    
+    /**
+     * PRUEBA #1:
+     *  Funcion recursiva que me retorna TRUE si un numero
+     *  n es primo o no.
+     * @param n Numero a evaluar
+     */
+    public boolean primo(int n){
+        if(n > 1)
+            return primo(n,2);
+        return false;
+    }
+
+    private boolean primo(int n, int d) {
+        if( d < n){
+            if(n % d == 0)
+                return false;
+            return primo(n, d+1);
+        }
+        return true;
+    }
 }
