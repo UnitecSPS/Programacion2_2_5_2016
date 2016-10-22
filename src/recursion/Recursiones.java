@@ -101,12 +101,20 @@ public class Recursiones {
         return true;
     }
     
-    public int fibonacci(int x){
+    public int fibonacciUP(int x){
     	if(x == 0)
     		return 0;
     	else if(x == 1)
     		return 1;
     	else
-    		return fibonacci(x-1) + fibonacci(x-2);
+    		return fibonacciUP(x-1) + fibonacciUP(x-2);
     }
+    
+    public int fibonacciDOWN(int  x, int cont, int f1, int f2){
+    	if(cont <= x)
+    		fibonacciDOWN(x, cont + 1, f1 + f2, f2);
+    	return f2;
+    }
+    
+    
 }
