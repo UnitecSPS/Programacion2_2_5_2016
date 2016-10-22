@@ -33,5 +33,7 @@ public class TestRecursion {
         //primo
         System.out.println("Primo 7?: "+recur.primo(7));
         System.out.println("Primo 21?: "+recur.primo(21));
+        //fibonacci
+        System.out.println("Fibonacci: "+recur.f(6));
     }
 }
