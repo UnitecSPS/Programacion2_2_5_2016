@@ -35,6 +35,6 @@ public class TestRecursion {
         System.out.println("Primo 21?: "+recur.primo(21));
         
         System.out.println("Fib0 UP (8): " + recur.fibonacciUP(8));
-        System.out.println("Fib0 DOWN (8): " + recur.fibonacciDOWN(8, 1, 1, 1));
+        System.out.println("Fib0 DOWN (8): " + recur.fibonacciDOWN(8, 1, 1, 0));
     }
 }

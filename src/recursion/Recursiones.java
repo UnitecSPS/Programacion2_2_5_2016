@@ -112,7 +112,7 @@ public class Recursiones {
     
     public int fibonacciDOWN(int  x, int cont, int f1, int f2){
     	if(cont <= x)
-    		fibonacciDOWN(x, cont + 1, f1 + f2, f2);
+    		return fibonacciDOWN(x, cont + 1, f1 + f2, f1);
     	return f2;
     }
     
