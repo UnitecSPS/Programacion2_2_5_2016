@@ -82,3 +82,9 @@ College/*
 Status API Training Shop Blog About Pricing
 © 2015 GitHub, Inc. Terms Privacy Security Contact Help
 /bin/
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Eclipse Core
+.project
