@@ -100,7 +100,7 @@ public class Recursiones {
         }
         return true;
     }
-    
+   
     public int fibonacciUP(int x){
     	if(x == 0 || x == 1)
     		return x;
@@ -112,6 +112,4 @@ public class Recursiones {
     		return fibonacciDOWN(x, cont + 1, f1 + f2, f1);
     	return f2;
     }
-    
-    
 }
