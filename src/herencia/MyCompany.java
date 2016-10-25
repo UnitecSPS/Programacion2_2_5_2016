@@ -13,6 +13,9 @@ public class MyCompany {
     public static void main(String[] args) {
         //EmpleadoComun ec = new EmpleadoComun();
         //EmpleadoPorHora eh =  new EmpleadoPorHora();
-        EmpleadoTemporal et = new EmpleadoTemporal();
+        EmpleadoTemporal et = new EmpleadoTemporal(1,"Frances");
+        
+        if(et instanceof EmpleadoComun)
+            System.out.println("Si soy descendiente de Empleado");
     }
 }

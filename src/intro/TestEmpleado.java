@@ -13,7 +13,7 @@ import herencia.EmpleadoComun;
  */
 public class TestEmpleado {
     public static void main(String[] args) {
-        EmpleadoComun ec = new EmpleadoComun();
+        EmpleadoComun ec = new EmpleadoComun(1,"Hola",3);
         //ec.codigo = 1;
     }
     

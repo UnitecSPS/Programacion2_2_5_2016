@@ -14,7 +14,8 @@ import java.util.Calendar;
 public class EmpleadoTemporal extends EmpleadoComun {
     private Calendar finContrato;
     
-    public EmpleadoTemporal(){
+    public EmpleadoTemporal(int c, String n){
+        super(c,n,8000);
         System.out.println("Llamando Temporal");
     }
 

@@ -11,6 +11,10 @@ package herencia;
  */
 public class EmpleadoPorHora extends Empleado {
     private int horasT;
+    
+    public EmpleadoPorHora(int c, String n){
+        super(c,n);
+    }
 
     public int getHorasT() {
         return horasT;
