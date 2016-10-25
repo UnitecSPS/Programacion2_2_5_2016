@@ -106,4 +106,14 @@ public class Recursiones {
         }
         return n;
      }
+    public int fD(int n){
+        return fD(n, 1, 1, 0);
+    }
+    private int fD(int n,int c,int f1,int f2){
+        if(c<=n){
+            return fD(n,c+1,f1+f2,f1);
+        }
+        return f2;
+        
+    }
 }
