@@ -5,17 +5,30 @@
  */
 package herencia;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Aula
  */
 public class MyCompany {
     public static void main(String[] args) {
-        //EmpleadoComun ec = new EmpleadoComun();
-        //EmpleadoPorHora eh =  new EmpleadoPorHora();
-        EmpleadoTemporal et = new EmpleadoTemporal(1,"Frances");
+        ArrayList<Empleado> emps = new ArrayList<>();
         
-        if(et instanceof EmpleadoComun)
+        emps.add(new EmpleadoComun(1,"Carlos",1000));
+        emps.add(new EmpleadoPorHora(2,"Jose"));
+        emps.add(new EmpleadoTemporal(3,"Frances"));
+        emps.add(new Empleado(4, "Riner"));
+        
+        //-------
+        for(Empleado em : emps){
+            em.quienSoy();
+        }
+        
+        //------------------------------
+        Empleado et = emps.get(0);
+        System.out.println(et);
+        if(et instanceof EmpleadoTemporal)
             System.out.println("Si soy descendiente de Empleado");
     }
 }

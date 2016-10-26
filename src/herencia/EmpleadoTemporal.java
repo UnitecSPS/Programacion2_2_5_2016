@@ -16,7 +16,7 @@ public class EmpleadoTemporal extends EmpleadoComun {
     
     public EmpleadoTemporal(int c, String n){
         super(c,n,8000);
-        System.out.println("Llamando Temporal");
+        //System.out.println("Llamando Temporal");
     }
 
     public Calendar getFinContrato() {

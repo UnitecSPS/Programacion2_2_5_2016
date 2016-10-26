@@ -17,7 +17,7 @@ public class Empleado {
     protected Calendar contratacion;
     
     public Empleado(int c, String n){
-        System.out.println("Llamando a Papi");
+        //System.out.println("Llamando a Papi");
         codigo = c;
         nombre = n;
         contratacion = Calendar.getInstance();
@@ -45,5 +45,9 @@ public class Empleado {
     
     public double bono(){
         return 0;
+    }
+    
+    public void quienSoy(){
+        System.out.println("Soy un Empleado Generico");
     }
 }
