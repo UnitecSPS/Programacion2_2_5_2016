@@ -14,6 +14,7 @@ public class EmpleadoComun extends Empleado {
     
     public EmpleadoComun(int c, String n, double sal){
         super(c,n);
+        salario = sal;
         //System.out.println("Llamando a Comun");
         
     }
@@ -30,4 +31,11 @@ public class EmpleadoComun extends Empleado {
     public void quienSoy(){
         System.out.println("Soy un Empleado con Salario");
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " salario="+salario; 
+    }
+    
+    
 }

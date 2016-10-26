@@ -25,4 +25,8 @@ public class EmpleadoPorHora extends Empleado {
     }
     
     
+    @Override
+    public void quienSoy(){
+        System.out.println("Soy un Empleado que Trabaja por Hora");
+    }
 }

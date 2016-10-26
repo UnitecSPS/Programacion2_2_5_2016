@@ -50,4 +50,11 @@ public class Empleado {
     public void quienSoy(){
         System.out.println("Soy un Empleado Generico");
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "codigo=" + codigo + ", nombre=" + nombre + '}';
+    }
+    
+    
 }

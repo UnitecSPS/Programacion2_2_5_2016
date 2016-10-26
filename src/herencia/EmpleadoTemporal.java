@@ -16,6 +16,7 @@ public class EmpleadoTemporal extends EmpleadoComun {
     
     public EmpleadoTemporal(int c, String n){
         super(c,n,8000);
+        finContrato = Calendar.getInstance();
         //System.out.println("Llamando Temporal");
     }
 
@@ -25,6 +26,16 @@ public class EmpleadoTemporal extends EmpleadoComun {
 
     public void setFinContrato(int y, int m, int d) {
         this.finContrato.set(y, m, d);
+    }
+    
+    @Override
+    public void quienSoy(){
+        System.out.println("Sn un Empleado con Salario pero Temporal");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " finContrato = "+finContrato.getTime(); 
     }
     
     

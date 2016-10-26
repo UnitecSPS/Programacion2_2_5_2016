@@ -19,10 +19,12 @@ public class MyCompany {
         emps.add(new EmpleadoPorHora(2,"Jose"));
         emps.add(new EmpleadoTemporal(3,"Frances"));
         emps.add(new Empleado(4, "Riner"));
+        //Agregar un empleado por venta
         
         //-------
         for(Empleado em : emps){
             em.quienSoy();
+            System.out.println(em);
         }
         
         //------------------------------
