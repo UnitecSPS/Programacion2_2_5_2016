@@ -109,15 +109,33 @@ public class Empresa {
         }while(op!=4);
     }
     
+    /**
+     * 1- Leer un codigo
+     * 2- Buscar el empleado, que existe y q sea Temporal
+     * 3- Si concuerda, set fecha fin contrato
+     * 4- Leer del teclado los datos
+     */
     private static void setFin() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
+    /**
+     * 1- Leer un codigo
+     * 2- Buscar empleado, que exista y que sea PorVentas
+     * 3- Si concuerda, agregar una venta
+     * 4- Leer del teclado los datos
+     */
     private static void ventas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
+    /**
+     * 1- Leer un codigo
+     * 2- Buscar empleado, que exista y que sea PorHoras
+     * 3- Si concuerda, agregar las horas trabajadas
+     * 4- Leer del teclado los datos
+     */
     private static void horas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 }
