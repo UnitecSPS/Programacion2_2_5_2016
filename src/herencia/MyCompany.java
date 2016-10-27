@@ -32,5 +32,14 @@ public class MyCompany {
         System.out.println(et);
         if(et instanceof EmpleadoTemporal)
             System.out.println("Si soy descendiente de Empleado");
+        
+        Empleado ev = new EmpleadoPorVenta(6, "Maria", 3000);
+        //Downcasting
+        //1- Indirecto
+        EmpleadoPorVenta eventa = (EmpleadoPorVenta)ev;
+        eventa.agregarVenta(78000);
+        System.out.println(ev);
+        //2- Directo
+        System.out.println("Comision: "+((EmpleadoPorVenta)ev).comision());
     }
 }

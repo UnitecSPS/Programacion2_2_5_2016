@@ -18,6 +18,10 @@ public class EmpleadoComun extends Empleado {
         //System.out.println("Llamando a Comun");
         
     }
+    
+    public double pagar(){
+        return salario - (salario*0.035);
+    }
 
     public double getSalario() {
         return salario;

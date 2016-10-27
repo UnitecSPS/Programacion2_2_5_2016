@@ -19,6 +19,14 @@ public class EmpleadoTemporal extends EmpleadoComun {
         finContrato = Calendar.getInstance();
         //System.out.println("Llamando Temporal");
     }
+    
+    @Override
+    public double pagar(){
+        Calendar hoy = Calendar.getInstance();
+        if(hoy.before(finContrato))
+            return super.pagar();
+        return 0;
+    }
 
     public Calendar getFinContrato() {
         return finContrato;
