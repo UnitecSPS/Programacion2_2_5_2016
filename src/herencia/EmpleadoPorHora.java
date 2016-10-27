@@ -24,6 +24,12 @@ public class EmpleadoPorHora extends Empleado {
         this.horasT = horasT;
     }
     
+    @Override
+    public double pagar(){
+        double monto = horasT * 150;
+        horasT = 0;
+        return monto;
+    }
     
     @Override
     public void quienSoy(){
