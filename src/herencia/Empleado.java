@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package herencia;
 
 import java.util.Calendar;
 
-/**
- *
- * @author Aula
- */
 public class Empleado {
     protected int codigo;
     protected String nombre;
@@ -44,6 +36,7 @@ public class Empleado {
     }
     
     public double bono(){
+        System.out.println("no hay bono pa ti");
         return 0;
     }
     
