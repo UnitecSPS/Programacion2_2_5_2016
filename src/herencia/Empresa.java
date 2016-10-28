@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package herencia;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author Aula
- */
+
 public class Empresa {
     static ArrayList<Empleado> empleados;
     static Scanner lea = new Scanner(System.in);
@@ -54,7 +47,22 @@ public class Empresa {
      * @return El obj Empleado si se encuentra, null si no
      */
     private Empleado search(int cod){
+        for (Empleado i : empleados) {
+            if (i.codigo == cod)
+                return i;
+        }
         return null;
+    }
+    private Empleado searchRecursiva(int cod, int conta) {
+        if (conta < empleados.size()) {
+            if (empleados.get(conta).codigo == cod)
+                return empleados.get(conta);
+            return searchRecursiva(cod, conta+1);
+        }
+        return null;
+    }
+    private Empleado searchRecursiva(int con) {
+        return searchRecursiva(con, 0);
     }
 
     /**
@@ -65,7 +73,28 @@ public class Empresa {
      * 4- LOS DATOS requeridos se ingresan del teclado
      */
     private static void hire() {
-        
+        System.out.println("Que tipo de empleado contratara?");
+        String tipo = lea.next();
+        System.out.println("Coloque el salario del empleado");
+        double sal = lea.nextDouble();
+        System.out.println("Coloque el nombre del empleado");
+        String nom = lea.next();
+        System.out.println("Coloque el codigo del empleado");
+        int cod = lea.nextInt();
+        for (Empleado i : empleados) {
+            if (i.codigo == cod) {
+                System.out.println("Codigo ya esta en uso, vuelva a comenzar");
+                hire();
+            }
+        }
+        if (tipo.equals("comun"))
+            empleados.add(new EmpleadoComun(cod, nom, sal));
+        else if (tipo.equals("hora"))
+            empleados.add(new EmpleadoPorHora(cod, nom));
+        else if (tipo.equals("venta"))
+            empleados.add(new EmpleadoPorVenta(cod, nom, sal));
+        else
+            empleados.add(new EmpleadoTemporal(cod, nom));
     }
 
     /**
@@ -75,13 +104,22 @@ public class Empresa {
      * 3- Si existe, mostramos en pantalla su pago
      */
     private static void pay() {
+        System.out.println("Para pagar escriba el codigo del empleado");
+        int cod = lea.nextInt();
+        for (Empleado i : empleados) {
+            if (i.codigo == cod)
+                System.out.println("Se ha pagado" + i.pagar() + " al empleado " + i.nombre);
+        }
     }
 
     /**
      * Imprimir la lista de empleados
      */
     private static void list() {
-        
+        System.out.println("Estos son todos los empleados de la empresa");
+        for (Empleado i : empleados) {
+            i.toString();
+        }
     }
 
     
