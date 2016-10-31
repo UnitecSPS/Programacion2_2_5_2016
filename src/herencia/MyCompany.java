@@ -18,7 +18,6 @@ public class MyCompany {
         emps.add(new EmpleadoComun(1,"Carlos",1000));
         emps.add(new EmpleadoPorHora(2,"Jose"));
         emps.add(new EmpleadoTemporal(3,"Frances"));
-        emps.add(new Empleado(4, "Riner"));
         //Agregar un empleado por venta
         
         //-------

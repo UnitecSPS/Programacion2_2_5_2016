@@ -35,4 +35,11 @@ public class EmpleadoPorHora extends Empleado {
     public void quienSoy(){
         System.out.println("Soy un Empleado que Trabaja por Hora");
     }
+
+    @Override
+    public double bono() {
+        if(horasT > 400)
+            return 1000;
+        return 0;
+    }
 }

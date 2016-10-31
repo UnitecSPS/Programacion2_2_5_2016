@@ -19,6 +19,7 @@ public class EmpleadoComun extends Empleado {
         
     }
     
+    @Override
     public double pagar(){
         return salario - (salario*0.035);
     }
@@ -39,6 +40,11 @@ public class EmpleadoComun extends Empleado {
     @Override
     public String toString() {
         return super.toString() + " salario="+salario; 
+    }
+
+    @Override
+    public double bono() {
+        return 0;
     }
     
     

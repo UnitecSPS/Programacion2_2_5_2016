@@ -11,7 +11,7 @@ import java.util.Calendar;
  *
  * @author Aula
  */
-public class Empleado {
+public abstract class Empleado {
     protected int codigo;
     protected String nombre;
     protected Calendar contratacion;
@@ -39,13 +39,9 @@ public class Empleado {
         this.nombre = nombre;
     }
     
-    public double pagar(){
-        return 0;
-    }
+    public abstract double pagar();
     
-    public double bono(){
-        return 0;
-    }
+    public abstract double bono();
     
     public void quienSoy(){
         System.out.println("Soy un Empleado Generico");
