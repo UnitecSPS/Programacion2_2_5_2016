@@ -3,8 +3,8 @@ package herencia.abstracta;
 
 public class Loro extends Animal{
     
-    public Loro(int i, String s) {
-        super(i, s);
+    public Loro(String s) {
+        super(2, s);
     }
     
     @Override

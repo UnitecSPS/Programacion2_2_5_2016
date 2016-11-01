@@ -4,8 +4,8 @@ package herencia.abstracta;
 
 public class Mono extends Animal{
     
-    public Mono(int i, String s) {
-        super(i, s);
+    public Mono(String s) {
+        super(4, s);
     }
     
     @Override
