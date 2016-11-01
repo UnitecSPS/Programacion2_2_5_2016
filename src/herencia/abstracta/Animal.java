@@ -28,4 +28,8 @@ public abstract class Animal {
     
     public abstract void hablar();
     public abstract void queComo();
+    
+    public String toString(){
+        return raza + " con "+patas+" :";
+    }
 }

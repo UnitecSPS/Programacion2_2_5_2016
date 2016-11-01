@@ -53,7 +53,7 @@ public class Empresa {
      * @param cod Codigo del Empleado
      * @return El obj Empleado si se encuentra, null si no
      */
-    private Empleado search(int cod){
+    private static Empleado search(int cod){
         return null;
     }
 
