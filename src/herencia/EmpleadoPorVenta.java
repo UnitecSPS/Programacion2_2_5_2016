@@ -15,7 +15,7 @@ import java.util.Calendar;
  *  Redefinir quiensoy y toString
  */
 
-public class EmpleadoPorVenta extends EmpleadoComun {
+public final class EmpleadoPorVenta extends EmpleadoComun {
     private double ventas[];
 
     public EmpleadoPorVenta(int c, String n, double sal) {

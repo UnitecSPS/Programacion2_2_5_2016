@@ -15,6 +15,7 @@ public abstract class Empleado {
     protected int codigo;
     protected String nombre;
     protected Calendar contratacion;
+    public static final double VERSION = 0.1;
     
     public Empleado(int c, String n){
         //System.out.println("Llamando a Papi");
@@ -23,19 +24,19 @@ public abstract class Empleado {
         contratacion = Calendar.getInstance();
     }
 
-    public int getCodigo() {
+    public final int getCodigo() {
         return codigo;
     }
 
-    public String getNombre() {
+    public final String getNombre() {
         return nombre;
     }
 
-    public Calendar getContratacion() {
+    public final Calendar getContratacion() {
         return contratacion;
     }
 
-    public void setNombre(String nombre) {
+    public final void setNombre(String nombre) {
         this.nombre = nombre;
     }
     
@@ -44,6 +45,7 @@ public abstract class Empleado {
     public abstract double bono();
     
     public void quienSoy(){
+        //VERSION = 4;
         System.out.println("Soy un Empleado Generico");
     }
 

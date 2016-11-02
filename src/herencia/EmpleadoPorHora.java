@@ -9,7 +9,7 @@ package herencia;
  *
  * @author Aula
  */
-public class EmpleadoPorHora extends Empleado {
+public final class EmpleadoPorHora extends Empleado {
     private int horasT;
     
     public EmpleadoPorHora(int c, String n){

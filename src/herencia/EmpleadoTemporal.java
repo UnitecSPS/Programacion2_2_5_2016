@@ -11,7 +11,7 @@ import java.util.Calendar;
  *
  * @author Aula
  */
-public class EmpleadoTemporal extends EmpleadoComun {
+public final class EmpleadoTemporal extends EmpleadoComun {
     private Calendar finContrato;
     
     public EmpleadoTemporal(int c, String n){
