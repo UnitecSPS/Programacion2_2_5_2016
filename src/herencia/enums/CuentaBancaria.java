@@ -19,7 +19,7 @@ public class CuentaBancaria {
         this.cod = cod;
         this.cliente = cliente;
         this.tipo = tipo;
-        saldo = 0;
+        saldo = tipo.saldoMin;
     }
     
     public double tasa(){
@@ -35,4 +35,10 @@ public class CuentaBancaria {
         }*/
         return tipo.tasa;
     }
+
+    public double getSaldo() {
+        return saldo;
+    }
+    
+    
 }
