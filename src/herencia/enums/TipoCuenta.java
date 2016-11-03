@@ -10,7 +10,7 @@ package herencia.enums;
  * @author Aula
  */
 public enum TipoCuenta {
-    AHORRO(0.02, 0.01), CHEQUES(0, 0), PLAZOFIJO(0.08, 0.05), VIP(0.05, 0.02);
+    AHORRO(0.02, 1000), CHEQUES(0, 500), PLAZOFIJO(0.08, 150), VIP(0.05, 5000);
     
     public final double tasa;
     public final double minSaldo;
