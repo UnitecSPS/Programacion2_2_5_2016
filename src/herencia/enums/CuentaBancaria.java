@@ -19,7 +19,7 @@ public class CuentaBancaria {
         this.cod = cod;
         this.cliente = cliente;
         this.tipo = tipo;
-        saldo = 0;
+        saldo = tipo.minSaldo;
     }
     
     public double tasa(){
