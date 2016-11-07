@@ -9,7 +9,7 @@ package herencia;
  *
  * @author Aula
  */
-public class EmpleadoComun extends Empleado implements Aumentable{
+public class EmpleadoComun extends Empleado implements Aumentable, Deductible{
     protected double salario;
     
     public EmpleadoComun(int c, String n, double sal){
@@ -21,7 +21,7 @@ public class EmpleadoComun extends Empleado implements Aumentable{
     
     @Override
     public double pagar(){
-        return salario - (salario*0.035);
+        return salario - deduct();
     }
 
     public double getSalario() {
@@ -56,6 +56,11 @@ public class EmpleadoComun extends Empleado implements Aumentable{
     @Override
     public boolean validForIncrease() {
         return true;
+    }
+
+    @Override
+    public double deduct() {
+        return salario * 0.035;
     }
     
     
