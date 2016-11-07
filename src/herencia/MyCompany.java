@@ -20,6 +20,8 @@ public class MyCompany {
         emps.add(new EmpleadoComun(1,"Carlos",1000));
         emps.add(new EmpleadoPorHora(2,"Jose"));
         emps.add(new EmpleadoTemporal(3,"Frances"));
+        emps.add(new EmpleadoFantasma(4, "Riner"));
+        emps.add(new EmpleadoPorVenta(5, "Boris", 5000));
         //Agregar un empleado por venta
         
         //-------
@@ -42,5 +44,16 @@ public class MyCompany {
         System.out.println(ev);
         //2- Directo
         System.out.println("Comision: "+((EmpleadoPorVenta)ev).comision());
+        
+        
+        
+        //Aumentar Fest!
+        for(Empleado em : emps){
+            if(em instanceof Aumentable){
+                ((Aumentable)em).increaseIncome();
+                System.out.println("Aumentado: "+em);
+            }
+                
+        }
     }
 }

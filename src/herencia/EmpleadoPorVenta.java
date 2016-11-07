@@ -16,11 +16,12 @@ import java.util.Calendar;
  */
 
 public final class EmpleadoPorVenta extends EmpleadoComun {
-    private double ventas[];
+    private double ventas[], tasa;
 
     public EmpleadoPorVenta(int c, String n, double sal) {
         super(c, n, sal);
         ventas = new double[12];
+        tasa = 0.01;
     }
     
     private int mesActual(){
@@ -33,7 +34,7 @@ public final class EmpleadoPorVenta extends EmpleadoComun {
     }
     
     public double comision(){
-        return ventas[mesActual()] * 0.1;
+        return ventas[mesActual()] * tasa;
     }
     
     @Override
@@ -49,6 +50,12 @@ public final class EmpleadoPorVenta extends EmpleadoComun {
     @Override
     public void quienSoy() {
         System.out.println("Soy un Empleado que gana Comision"); 
+    }
+
+    @Override
+    public void increaseIncome() {
+        if(tasa < 0.2)
+            tasa += 0.01;
     }
     
     

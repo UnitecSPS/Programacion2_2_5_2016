@@ -45,6 +45,11 @@ public final class EmpleadoTemporal extends EmpleadoComun {
     public String toString() {
         return super.toString() + " finContrato = "+finContrato.getTime(); 
     }
+
+    @Override
+    public boolean validForIncrease() {
+        return false;
+    }
     
     
 }
