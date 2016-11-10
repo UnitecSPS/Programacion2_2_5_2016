@@ -9,7 +9,6 @@ package herencia;
  *
  * @author Aula
  */
-public interface Deductible {
-    double TASA_DEDUCCION = 0.035;
-    double deduct();
+public interface Empleable extends Aumentable, Deductible, Cloneable {
+    public void test();
 }

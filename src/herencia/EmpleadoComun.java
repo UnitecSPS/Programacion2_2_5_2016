@@ -9,7 +9,7 @@ package herencia;
  *
  * @author Aula
  */
-public class EmpleadoComun extends Empleado implements Aumentable, Deductible{
+public class EmpleadoComun extends Empleado implements Empleable{
     protected double salario;
     
     public EmpleadoComun(int c, String n, double sal){
@@ -60,7 +60,12 @@ public class EmpleadoComun extends Empleado implements Aumentable, Deductible{
 
     @Override
     public double deduct() {
-        return salario * 0.035;
+        return salario * Deductible.TASA_DEDUCCION;
+    }
+
+    @Override
+    public void test() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

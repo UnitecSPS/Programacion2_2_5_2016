@@ -5,13 +5,14 @@
  */
 package herencia;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  *
  * @author Aula
  */
-public abstract class Empleado {
+public abstract class Empleado implements Serializable {
     protected int codigo;
     protected String nombre;
     protected Calendar contratacion;
