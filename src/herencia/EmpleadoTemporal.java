@@ -5,6 +5,7 @@
  */
 package herencia;
 
+import errores.InvalidContractDateException;
 import java.util.Calendar;
 
 /**
@@ -33,7 +34,14 @@ public final class EmpleadoTemporal extends EmpleadoComun {
     }
 
     public void setFinContrato(int y, int m, int d) {
-        this.finContrato.set(y, m, d);
+        Calendar fin = Calendar.getInstance();
+        Calendar hoy = Calendar.getInstance();
+        fin.set(y,m,d);
+        
+        if(fin.after(hoy))
+            this.finContrato.set(y, m, d);
+        else
+            throw new InvalidContractDateException(fin);
     }
     
     @Override

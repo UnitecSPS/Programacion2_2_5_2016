@@ -5,6 +5,8 @@
  */
 package errores;
 
+import herencia.EmpleadoTemporal;
+import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,6 +17,7 @@ import java.util.Scanner;
 public class ClaseFragil {
     public static void main(String[] args) {
         System.out.println("Iniciando Main");
+        //int  x = 5/0;
         try{
             System.out.println("Iniciando Try");
             a();
@@ -29,13 +32,22 @@ public class ClaseFragil {
         catch(NumberFormatException e){
             System.out.println("Por favor seleccione un entero");
         }
-//        catch(Exception e){
-//            System.out.println("Error: "+e);
-//            lastStackTraceElement(e);
-//        }
+        catch(Exception e){
+            System.out.println("Error: "+e);
+            lastStackTraceElement(e);
+        }
+        finally{
+            System.out.println("Se llamo el Finally");
+            close();
+        }
+        
         System.out.println("Finalizando Main");
     }
 
+    private static void close(){
+        System.out.println("Cerrando el sistema...");
+    }
+    
     private static void a() {
         System.out.println("Iniciando a()");
         b();
@@ -51,6 +63,7 @@ public class ClaseFragil {
         System.out.println("Longitud: "+vals[pos].length());//NullPointer
         int entero = Integer.parseInt(vals[pos]);//NumberFormat
         System.out.println("Division entr "+entero+": "+ (10/entero) );//Arithmetic
+        temporal();
         System.out.println("Finalizando b()");
     }
 
@@ -60,5 +73,10 @@ public class ClaseFragil {
         System.out.print("Clase?: "+stations[last].getClassName());
         System.out.print(" Linea?: "+stations[last].getLineNumber());
         System.out.println(" Metodo?: "+stations[last].getMethodName());
+    }
+
+    private static void temporal() {
+        EmpleadoTemporal et = new EmpleadoTemporal(1, "Pancho");
+        et.setFinContrato(2015, Calendar.DECEMBER, 31);
     }
 }
