@@ -5,6 +5,7 @@
  */
 package archivos;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -39,6 +40,15 @@ public class TestMiFile {
                     case 2:
                         mf.viewInfo();
                         break;
+                    case 3:
+                        mf.crearArchivo();
+                        break;
+                    case 4:
+                        mf.crearDir();
+                        break;
+                    case 5:
+                        mf.borrart();
+                        break;
                 }
             }
             catch(InputMismatchException e){
@@ -47,6 +57,9 @@ public class TestMiFile {
             }
             catch(NullPointerException e){
                 System.out.println("Debes seleccionar la opcion 1 por lo menos una vez");
+            }
+            catch(IOException e){
+                System.out.println("Error en Disco: "+e.getMessage());
             }
         }while(op!= 11);
     }

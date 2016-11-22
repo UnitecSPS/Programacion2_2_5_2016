@@ -6,6 +6,7 @@
 package archivos;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 
 /**
@@ -37,6 +38,39 @@ public class MiFile {
         }
         else
             System.out.println("Aun No existe");
+    }
+
+    void crearArchivo()throws IOException {
+        if(file.createNewFile())
+            System.out.println("Creado exitosamente");
+        else
+            System.out.println("No se pudo crear");
+    }
+
+    void crearDir() {
+        if(file.mkdirs())
+            System.out.println("Creado exitosamente");
+        else
+            System.out.println("No se pudo crear");
+    }
+
+    void borrart() {
+        if(file.delete())
+            System.out.println("Borrado exitosamente");
+        else
+            System.out.println("No se pudo borrar");
+    }
+    
+    void dir(){
+        if(file.isDirectory()){
+            System.out.println("Directorio de: "+file.getAbsolutePath());
+            System.out.println("");
+            
+            for(File child : file.listFiles()){
+                
+            }
+            
+        }
     }
     
     
