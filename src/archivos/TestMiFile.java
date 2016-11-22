@@ -27,6 +27,8 @@ public class TestMiFile {
             System.out.println("3- Crear Archivo");
             System.out.println("4- Crear Folder");
             System.out.println("5- Borrar");
+            System.out.println("6- Comando Dir");
+            System.out.println("7- Comando Tree");
             System.out.println("11- Salir");
             System.out.print("Escoja opcion: ");
             
@@ -49,6 +51,11 @@ public class TestMiFile {
                     case 5:
                         mf.borrart();
                         break;
+                    case 6:
+                        mf.dir();
+                        break;
+                    case 7:
+                        mf.tree();
                 }
             }
             catch(InputMismatchException e){

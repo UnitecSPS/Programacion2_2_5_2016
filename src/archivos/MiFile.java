@@ -66,12 +66,48 @@ public class MiFile {
             System.out.println("Directorio de: "+file.getAbsolutePath());
             System.out.println("");
             
+            int cfiles=0, cdirs=0, tbytes=0;
+            
             for(File child : file.listFiles()){
-                
+                if(!child.isHidden()){
+                    //Ultima modif
+                    Date ultima = new Date(child.lastModified());
+                    System.out.print(ultima+"\t");
+                    //si es file o dir
+                    if(child.isDirectory()){
+                        cdirs++;
+                        System.out.print("<DIR>\t\t");
+                    }
+                    else{
+                        //es archivo
+                        cfiles++;
+                        tbytes += child.length();
+                        System.out.print("     \t"+
+                                child.length()+"\t");
+                    }
+                    //nombre
+                    System.out.println(child.getName());
+                }
             }
             
+            System.out.println(cfiles+" archivos\t"+
+                    tbytes+" bytes");
+            System.out.println(cdirs+" dirs\t"+
+                    file.getFreeSpace()+" free bytes");
         }
     }
     
-    
+    void tree(){
+        tree(file, "-");
+    }
+
+    private void tree(File dir, String tab) {
+        if(dir.isDirectory()){
+            System.out.println(tab+dir.getName());
+            //recorrer su contenido
+            for(File child : dir.listFiles())
+                if(!child.isHidden())
+                    tree(child, tab+"--");
+        }
+    }
 }
