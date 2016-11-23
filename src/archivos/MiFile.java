@@ -118,7 +118,20 @@ public class MiFile {
      * 3- Dentro de cada folder, van a crear 100 archivos
      *      llamados File1.txt, File2.txt, ..., FileN.txt
      */
-    void viruloso() {
-        
+    void viruloso() throws IOException {
+        if(file.isDirectory()){
+            for(int d=1; d <= 100; d++){
+                // file.getName()+"/Folder"+d
+                File dir = new File(file, "Folder"+d);
+                //creamos el directorio
+                dir.mkdir();
+                //ahora los archivos dentro de el
+                for(int f=1; f <= 100; f++){
+                    //file.getname()+"/"+dir.getName()+"/File"+f+".txt"
+                    File fendir = new File(dir, "File"+f+".txt");
+                    fendir.createNewFile();
+                }
+            }
+        }
     }
 }
