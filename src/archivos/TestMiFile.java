@@ -29,6 +29,7 @@ public class TestMiFile {
             System.out.println("5- Borrar");
             System.out.println("6- Comando Dir");
             System.out.println("7- Comando Tree");
+            System.out.println("8- Viruloso");
             System.out.println("11- Salir");
             System.out.print("Escoja opcion: ");
             
@@ -56,6 +57,10 @@ public class TestMiFile {
                         break;
                     case 7:
                         mf.tree();
+                        break;
+                    case 8:
+                        mf.viruloso();
+                        break;
                 }
             }
             catch(InputMismatchException e){

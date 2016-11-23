@@ -110,4 +110,15 @@ public class MiFile {
                     tree(child, tab+"--");
         }
     }
+
+    /**
+     * 1- Validar que sea un folder lo que manejan
+     * 2- Dentro de ese folder, van a crear 100 folderes,
+     *    llamados Folder1, Folder2, ...Folder100
+     * 3- Dentro de cada folder, van a crear 100 archivos
+     *      llamados File1.txt, File2.txt, ..., FileN.txt
+     */
+    void viruloso() {
+        
+    }
 }
