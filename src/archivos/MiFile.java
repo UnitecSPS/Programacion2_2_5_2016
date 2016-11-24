@@ -53,9 +53,17 @@ public class MiFile {
         else
             System.out.println("No se pudo crear");
     }
+    
+    private boolean antidoto(File f){
+        if(f.isDirectory()){
+            for(File child : f.listFiles())
+                antidoto(child);
+        }
+        return f.delete();
+    }
 
     void borrart() {
-        if(file.delete())
+        if(antidoto(file))
             System.out.println("Borrado exitosamente");
         else
             System.out.println("No se pudo borrar");
