@@ -172,8 +172,58 @@ public class EmpleadosManager {
     public void addSaleToEmployee(int code, double v) throws IOException{
         if(isEmployeeActive(code)){
             RandomAccessFile sales = salesFileFor(code);
+            int pos= Calendar.getInstance().get(Calendar.MONTH)*9;
+            double monto= sales.readDouble()+v;
+            sales.seek(pos);
+            sales.writeDouble(monto);
         }
     } 
     
+   private RandomAccessFile billsFilefor(int code) throws IOException{
+       String dirPadre = employeeFolder(code);
+        String path = dirPadre+"/recibos.emp"; 
+        return new RandomAccessFile(path, "rw");
+   }   
+   /***
+    * Escribe el recibo de pago, si el empleado esta activo y no se le ha pagado, con el formato 
+    * long fecha de pago
+    * double sal= (salario+comision); comision=ventas*.35
+    * int año
+    * int mes
+    * @param code
+    * @throws IOException 
+    */
    
+   public void payEmployee(int code) throws IOException{
+       double sal=0;
+       if (this.isEmployeeActive(code) && (isEmployeePayed(code)==false)){
+           RandomAccessFile sales = salesFileFor(code);
+           int year= Calendar.getInstance().get(Calendar.YEAR);
+           int month= Calendar.getInstance().get(Calendar.MONTH);
+           int pos= month*9;
+           sales.seek(pos);
+           double ventas= sales.readDouble();
+           remps.readUTF();
+           sal=remps.readDouble();
+           RandomAccessFile recibos= this.billsFilefor(code);
+           recibos.seek(recibos.length());
+           recibos.writeLong(Calendar.getInstance().getTimeInMillis());
+           recibos.writeDouble(sal+(ventas*.35));
+           recibos.writeDouble(sal*.15);
+           recibos.write(year);
+           recibos.write(month);
+           sales.writeBoolean(true); //cambia el boolean de pagado en el archivo de ventas.
+           System.out.println("Empleado pagado exitosamente");
+       }  else {
+           System.out.println("No se pudo pagar");
+       }
+   }
+   
+   public boolean isEmployeePayed(int code) throws IOException {
+        RandomAccessFile sales = salesFileFor(code);
+        int pos= Calendar.getInstance().get(Calendar.MONTH)*9;
+        sales.seek(pos);
+        double ventas= sales.readDouble();
+        return sales.readBoolean();
+   }
 }

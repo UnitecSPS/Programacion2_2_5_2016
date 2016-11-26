@@ -14,65 +14,62 @@ import java.util.Scanner;
  * @author Justm
  */
 public class EmpleadosMain {
-    static Scanner lea = new Scanner(System.in);
-    static EmpleadosManager em= new EmpleadosManager();
-     public static void main(String[] args) {
+     public static void main(String[] args) 
+     {
+        Scanner lea = new Scanner(System.in);
+        EmpleadosManager manager = new EmpleadosManager();
         
-         int op=0;
+        int op = 0;
         
         do{
-            System.out.println("\nMENU\n----------------");
-            System.out.println("1- Set el Archivo/folder");
-            System.out.println("2- Ver Informacion");
-            System.out.println("3- Crear Archivo");
-            System.out.println("4- Crear Folder");
-            System.out.println("5- Borrar");
-            System.out.println("6- Comando Dir");
-            System.out.println("7- Comando Tree");
-            System.out.println("8- Viruloso");
-            System.out.println("11- Salir");
-            System.out.print("Escoja opcion: ");
+            System.out.println("\n\nMENU\n------------------");
+            System.out.println("1- Agregar Empleado");
+            System.out.println("2- Listar Empleados No Despedidos");
+            System.out.println("3- Agregar Venta a Empleado");
+            System.out.println("4- Pagar Empleado");
+            System.out.println("5- Despedir Empleado");
+            System.out.println("6- Salir");
+            System.out.print("Escoja Opcion: ");
             
             try{
                 op = lea.nextInt();
                 
                 switch(op){
                     case 1:
-                        
+                        System.out.println("Nombre: ");
+                        String n = lea.next();
+                        System.out.println("Salario: ");
+                        double sal = lea.nextDouble();
+                        manager.addEmployee(n, sal);
                         break;
                     case 2:
-                        
+                        manager.employeeList();
                         break;
                     case 3:
-                        
+                        System.out.println("Codigo: ");
+                        int code= lea.nextInt();
+                        System.out.println("Ventas: ");
+                        double ventas= lea.nextDouble();
+                        manager.addSaleToEmployee(code, ventas);
                         break;
                     case 4:
-                       
+                        System.out.println("Codigo: ");
+                        code = lea.nextInt();
+                        manager.payEmployee(code);
                         break;
                     case 5:
-                        
-                        break;
-                    case 6:
-                       
-                        break;
-                    case 7:
-                        
-                        break;
-                    case 8:
-                       
+                        System.out.println("Codigo: ");
+                        manager.fireEmployee(lea.nextInt());
                         break;
                 }
+            }catch(InputMismatchException e){
+                lea.next();
+                System.out.println("Ingrese un entero");
             }
-            catch(InputMismatchException e){
-                lea.nextLine();
-                System.out.println("Por favor ingrese una opcion correcta");
-            }
-            catch(NullPointerException e){
-                System.out.println("Debes seleccionar la opcion 1 por lo menos una vez");
-            }
-            catch(Exception e){
+            catch(IOException e){
                 System.out.println("Error en Disco: "+e.getMessage());
             }
-        }while(op!= 11);
+            
+        }while(op!=6);
     }
 }
