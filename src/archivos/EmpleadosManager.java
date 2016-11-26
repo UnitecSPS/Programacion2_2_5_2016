@@ -176,6 +176,7 @@ public class EmpleadosManager
         if(isEmployeeActive(code)){
             RandomAccessFile sales = salesFileFor(code);
             int pos= Calendar.getInstance().get(Calendar.MONTH)*9;
+            sales.seek(pos);
             double monto= sales.readDouble()+v;
             sales.seek(pos);
             sales.writeDouble(monto);
@@ -211,8 +212,10 @@ public class EmpleadosManager
            RandomAccessFile recibos= this.billsFilefor(code);
            recibos.seek(recibos.length());
            recibos.writeLong(Calendar.getInstance().getTimeInMillis());
-           recibos.writeDouble(sal+(ventas*.35));
-           recibos.writeDouble(sal*.15);
+           double sueldo= sal+(ventas*.10);
+           double deduc= sueldo*.035;
+           recibos.writeDouble(sueldo);
+           recibos.writeDouble(deduc);
            recibos.write(year);
            recibos.write(month);
            sales.writeBoolean(true); //cambia el boolean de pagado en el archivo de ventas.
