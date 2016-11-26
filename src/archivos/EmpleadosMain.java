@@ -6,6 +6,7 @@
 
 package archivos;
 
+
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -14,10 +15,11 @@ import java.util.Scanner;
  *
  * @author Docente
  */
-public class EmpleadosMain
-{
-    public static void main(String[] args)
-    {
+
+public class EmpleadosMain {
+     public static void main(String[] args) 
+     {
+
         Scanner lea = new Scanner(System.in);
         EmpleadosManager manager = new EmpleadosManager();
         
@@ -46,6 +48,18 @@ public class EmpleadosMain
                         break;
                     case 2:
                         manager.employeeList();
+                        break;
+                    case 3:
+                        System.out.println("Codigo: ");
+                        int code= lea.nextInt();
+                        System.out.println("Ventas: ");
+                        double ventas= lea.nextDouble();
+                        manager.addSaleToEmployee(code, ventas);
+                        break;
+                    case 4:
+                        System.out.println("Codigo: ");
+                        code = lea.nextInt();
+                        manager.payEmployee(code);
                         break;
                     case 5:
                         System.out.println("Codigo: ");
