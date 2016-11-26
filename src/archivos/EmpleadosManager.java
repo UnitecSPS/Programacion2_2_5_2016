@@ -221,7 +221,12 @@ public class EmpleadosManager
            System.out.println("No se pudo pagar");
        }
    }
-   
+   /**
+    * retorna true si el empleado ha sido pagado y false si no
+    * @param code
+    * @return
+    * @throws IOException 
+    */
    public boolean isEmployeePayed(int code) throws IOException {
         RandomAccessFile sales = salesFileFor(code);
         int pos= Calendar.getInstance().get(Calendar.MONTH)*9;
