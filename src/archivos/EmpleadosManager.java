@@ -56,12 +56,12 @@ public class EmpleadosManager {
         remps.writeLong(0);
         createEmployeeFolders(x);
     }
-    private String employeeFolders(int x) {
+    private String employeeFolder(int x) {
         return "company/Empleado"+x;
     }
 
     private void createEmployeeFolders(int x)  throws IOException {
-        File f=new File(employeeFolders(x));
+        File f=new File(employeeFolder(x));
         f.mkdir();
         createYearSalesFileFor(x);
         
@@ -116,9 +116,11 @@ public class EmpleadosManager {
     }
     
     private RandomAccessFile salesFileFor(int code) throws IOException{
-        String dirPadre= this.employeeFolders(code);
-        int year= Calendar.getInstance().get(Calendar.YEAR);
-        return new RandomAccessFile(dirPadre+"/Ventas"+year+".emp", "rw");
+        String dirPadre = employeeFolder(code);
+        int yearActual = Calendar.getInstance().get(Calendar.YEAR);
+        String path = dirPadre+"/ventas"+yearActual+".emp";
+        
+        return new RandomAccessFile(path, "rw");
     }
     
     public void addSaleToEmployee(int code, double sal) throws IOException{
