@@ -176,6 +176,7 @@ public class EmpleadosManager
         if(isEmployeeActive(code)){
             RandomAccessFile sales = salesFileFor(code);
             int pos= Calendar.getInstance().get(Calendar.MONTH)*9;
+            sales.seek(pos);
             double monto= sales.readDouble()+v;
             sales.seek(pos);
             sales.writeDouble(monto);
@@ -205,14 +206,16 @@ public class EmpleadosManager
            int month= Calendar.getInstance().get(Calendar.MONTH);
            int pos= month*9;
            sales.seek(pos);
-           double ventas= sales.readDouble();
            remps.readUTF();
            sal=remps.readDouble();
+           double ventas= sales.readDouble();
+           double sueldo= sal+(ventas*.10);
+           double deduc= sueldo*.035;
            RandomAccessFile recibos= this.billsFilefor(code);
            recibos.seek(recibos.length());
            recibos.writeLong(Calendar.getInstance().getTimeInMillis());
-           recibos.writeDouble(sal+(ventas*.35));
-           recibos.writeDouble(sal*.15);
+           recibos.writeDouble(sueldo);
+           recibos.writeDouble(deduc);
            recibos.write(year);
            recibos.write(month);
            sales.writeBoolean(true); //cambia el boolean de pagado en el archivo de ventas.
@@ -221,7 +224,12 @@ public class EmpleadosManager
            System.out.println("No se pudo pagar");
        }
    }
-   
+   /**
+    * retorna true si el empleado ha sido pagado y false si no
+    * @param code
+    * @return
+    * @throws IOException 
+    */
    public boolean isEmployeePayed(int code) throws IOException {
         RandomAccessFile sales = salesFileFor(code);
         int pos= Calendar.getInstance().get(Calendar.MONTH)*9;
