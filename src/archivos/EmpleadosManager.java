@@ -14,7 +14,6 @@ import java.util.Date;
 
 /**
  *
-<<<<<<< HEAD
  * @author Docente
  */
 public class EmpleadosManager
@@ -185,8 +184,8 @@ public class EmpleadosManager
     
    private RandomAccessFile billsFilefor(int code) throws IOException{
        String dirPadre = employeeFolder(code);
-        String path = dirPadre+"/recibos.emp"; 
-        return new RandomAccessFile(path, "rw");
+       String path = dirPadre+"/recibos.emp"; 
+       return new RandomAccessFile(path, "rw");
    }   
    /***
     * Escribe el recibo de pago, si el empleado esta activo y no se le ha pagado, con el formato 
@@ -200,17 +199,18 @@ public class EmpleadosManager
    
    public void payEmployee(int code) throws IOException{
        double sal=0;
-       if (this.isEmployeeActive(code) && (isEmployeePayed(code)==false)){
+       if (isEmployeeActive(code) && !isEmployeePayed(code)){
            RandomAccessFile sales = salesFileFor(code);
            int year= Calendar.getInstance().get(Calendar.YEAR);
            int month= Calendar.getInstance().get(Calendar.MONTH);
            int pos= month*9;
            sales.seek(pos);
-           remps.readUTF();
+           String n = remps.readUTF();
            sal=remps.readDouble();
            double ventas= sales.readDouble();
            double sueldo= sal+(ventas*.10);
            double deduc= sueldo*.035;
+           double total = sueldo - deduc;
            RandomAccessFile recibos= this.billsFilefor(code);
            recibos.seek(recibos.length());
            recibos.writeLong(Calendar.getInstance().getTimeInMillis());
@@ -219,7 +219,7 @@ public class EmpleadosManager
            recibos.write(year);
            recibos.write(month);
            sales.writeBoolean(true); //cambia el boolean de pagado en el archivo de ventas.
-           System.out.println("Empleado pagado exitosamente");
+           System.out.println("Empleado "+n+" se le pago Lps. "+total);
        }  else {
            System.out.println("No se pudo pagar");
        }
@@ -234,8 +234,18 @@ public class EmpleadosManager
         RandomAccessFile sales = salesFileFor(code);
         int pos= Calendar.getInstance().get(Calendar.MONTH)*9;
         sales.seek(pos);
-        double ventas= sales.readDouble();
+        sales.skipBytes(8);
         return sales.readBoolean();
+   }
+   
+   /*
+   Imprime los datos de un empleado que existe. Ademas:
+   - El detalle de sus 12 ventas anuales del año actual.
+   - Suma total de ventas hechas por el empleado
+   - El total de Recibos historicos
+   */
+   public void printEmployee(int code){
+       
    }
 
 }

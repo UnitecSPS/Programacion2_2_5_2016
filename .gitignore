@@ -1,4 +1,4 @@
-*.class
+﻿*.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -68,6 +68,7 @@ nbproject/*
 !nbproject/project.properties
 !nbproject/project.xml
 College/*
+company/*
  
 #specific for lourdes market
 *.sml
