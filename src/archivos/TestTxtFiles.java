@@ -21,20 +21,19 @@ public class TestTxtFiles {
         System.out.println("Append? (s/n): ");
         char app = lea.nextLine().toLowerCase().charAt(0);
         
-        try {
-            FileWriter fw = new FileWriter(path, app=='s');
-
+        try(FileWriter fw = new FileWriter(path, app=='s')) {
             do{
                 System.out.println("Escriba algo: ");
                 String dato = lea.nextLine();
-                if(!dato.equals(":q"))
+                if(!dato.equals(":q")){
                     fw.write(dato+"\r\n");
+                    //fw.flush();
+                }
                 else
                     break;
                 
             }while(true);
             
-            fw.close();
             
         } catch (IOException ex) {
             System.out.println("Error: "+ ex.getMessage());
