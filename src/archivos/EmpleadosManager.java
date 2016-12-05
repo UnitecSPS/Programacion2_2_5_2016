@@ -68,6 +68,37 @@ public class EmpleadosManager
         createEmployeeFolders(code);
     }
     
+    /**
+     * PRUEBA 5:
+     * ----------
+     * 1- Busca un empleado con ese codigo. Recordar los
+     *    despedidos
+     * 2- Si existe:
+     *      a- Sumarle a su salario actual el monto que
+     *        recibimos
+     *      b- Retornamos True
+     * 3- Si no existe: retonarnamos false
+     * @param code Codigo Empleado
+     * @param aumento Monto a aumentar a su salario
+     * @return 
+     */
+    public boolean increaseSalaryFor(int code, double aumento)throws IOException{
+        remps.seek(0);
+        while(remps.getFilePointer() < remps.length()){
+            int c = remps.readInt();
+            remps.readUTF();
+            long pos = remps.getFilePointer();
+            double sal = remps.readDouble();
+            remps.readLong();
+            if(remps.readLong() == 0 && code == c){
+                remps.seek(pos);
+                remps.writeDouble(sal+aumento);
+                return true;
+            }
+        }
+        return false;
+    }
+    
     private String employeeFolder(int code){
         return "company/empleado"+code;
     }
