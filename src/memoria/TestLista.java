@@ -21,5 +21,26 @@ public class TestLista {
         
         //print
         ln.printList();
+        
+        //contains
+        if(ln.contains("Sancho"))
+            System.out.println("Existe Sancho!");
+        if(!ln.contains("Rancho"))
+            System.out.println("No Contiene a rancho!");
+        
+        //add in the middle
+        try{
+            ln.add(0, new Nodo("Rancho") );
+            ln.add(2, new Nodo("Nacho") );
+            ln.add(6, new Nodo("Juancho") );
+            ln.add(8, new Nodo("Cacho") );
+        }
+        catch(IndexOutOfBoundsException e){
+            System.out.println("Error: "+e.getMessage());
+        }
+        System.out.println("\nDespues de agregar 2:\n----");
+        ln.printList();
+        System.out.println("size: "+ln.size());
+       
     }
 }

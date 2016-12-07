@@ -11,6 +11,7 @@ package memoria;
  */
 public class ListaNodo {
     private Nodo root = null;
+    private int size = 0;
     
     public boolean isEmpty(){
         return root == null;
@@ -26,9 +27,60 @@ public class ListaNodo {
                 tmp = tmp.next;
             tmp.next = obj;
         }
+        size++;
     }
     
     public void printList(){
+        Nodo tmp = root;
+        while(tmp != null){
+            System.out.println("-"+tmp);
+            tmp = tmp.next;
+        }
+    }
+    
+    public void clear(){
+        root = null;
+    }
+    
+    public boolean contains(String name){
+        Nodo tmp = root;
+        while(tmp != null){
+            if(tmp.name.equals(name))
+                return true;
+            tmp = tmp.next;
+        }
+        return false;
+    }
+    
+    /**
+     * Vamos a insertar el nodo, pero NO al final de la lista
+     * sino, en la posicion especifica.
+     * El resto se corre.
+     * @param index
+     * @param obj 
+     * @throws IndexOutOfBoundsException Si el index se pasa de
+     *   los limites
+     */
+    public void add(int index, Nodo obj){
+        if(obj==null) return;
+        if(index < 0 || index > size)
+            throw new IndexOutOfBoundsException(index+" not valid");
         
+        if(index == 0){
+            obj.next = root;
+            root = obj;
+        }
+        else{
+            Nodo tmp = root;
+            for(int n=0; n < index-1; n++)
+                tmp = tmp.next;
+            obj.next = tmp.next;
+            tmp.next = obj;
+        }
+        size++;
+    }
+    
+    public int size(){
+        return size;
     }
 }
