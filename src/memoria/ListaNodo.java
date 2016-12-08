@@ -83,4 +83,44 @@ public class ListaNodo {
     public int size(){
         return size;
     }
+    
+    public boolean remove(String name){
+        if(isEmpty()) return false;
+        
+        if(root.name.equals(name)){
+            root = root.next;
+            size--;
+            return true;
+        }
+        else{
+            Nodo tmp = root;
+            while(tmp.next != null){
+                if(tmp.next.name.equals(name)){
+                    tmp.next = tmp.next.next;
+                    size--;
+                    return true;
+                }
+                tmp = tmp.next;
+            }
+        }
+        
+        return false;
+    }
+    
+    public Nodo get(int index){
+        if(index < 0 || index >= size)
+            throw new IndexOutOfBoundsException(index+" not valid");
+        
+        Nodo tmp = root;
+        
+        for(int c=0; c < index; c++){
+            tmp = tmp.next;
+        }
+        
+        return tmp;
+    }
+    
+    public Nodo[] toArray(){
+        return null;
+    }
 }

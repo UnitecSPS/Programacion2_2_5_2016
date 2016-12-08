@@ -41,6 +41,20 @@ public class TestLista {
         System.out.println("\nDespues de agregar 2:\n----");
         ln.printList();
         System.out.println("size: "+ln.size());
+        
+        
+        //remover
+        ln.remove("Rancho");
+        ln.remove("Sancho");
+        ln.remove("Juancho");
+        ln.remove("Rango");
+        System.out.println("\nDespues de borrar:\n----");
+        ln.printList();
+        System.out.println("size: "+ln.size());
+        
+        //get
+        System.out.println("Nodo 3: "+ ln.get(3));
+        
        
     }
 }
