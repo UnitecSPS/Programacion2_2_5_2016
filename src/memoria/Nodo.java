@@ -9,7 +9,7 @@ package memoria;
  *
  * @author Aula
  */
-public class Nodo {
+public class Nodo implements Cloneable{
     public String name;
     public Nodo next = null;
 
@@ -20,5 +20,12 @@ public class Nodo {
     @Override
     public String toString() {
         return name;
+    }
+    
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Nodo tmp = (Nodo)super.clone();
+        tmp.next = null;
+        return tmp;
     }
 }

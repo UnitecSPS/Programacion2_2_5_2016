@@ -120,7 +120,15 @@ public class ListaNodo {
         return tmp;
     }
     
-    public Nodo[] toArray(){
-        return null;
+    public Nodo[] toArray() {
+        Nodo tmp[] = new Nodo[size];
+        for (int i=0; i < size; i++) {
+                try {
+                    tmp[i] = (Nodo)get(i).clone();
+                } catch (CloneNotSupportedException e) {
+                    System.out.println(e.getMessage());
+                }
+        }
+        return tmp;
     }
 }

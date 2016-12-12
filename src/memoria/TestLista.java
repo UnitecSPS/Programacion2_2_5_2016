@@ -54,7 +54,9 @@ public class TestLista {
         
         //get
         System.out.println("Nodo 3: "+ ln.get(3));
-        
-       
+        Nodo arr[] = ln.toArray();
+        System.out.println("Tamano del Array: " + arr.length);
+        System.out.println("Nombre: " + arr[0].name + " Conexion: " + (arr[0].next != null));
+        System.out.println("Nombre: " + arr[1].name + " Conexion: " + (arr[1].next != null));
     }
 }
