@@ -100,4 +100,16 @@ public class Recursiones {
         }
         return true;
     }
+   
+    public int fibonacciUP(int x){
+    	if(x == 0 || x == 1)
+    		return x;
+    	return fibonacciUP(x-1) + fibonacciUP(x-2);
+    }
+    
+    public int fibonacciDOWN(int  x, int cont, int f1, int f2){
+    	if(cont <= x)
+    		return fibonacciDOWN(x, cont + 1, f1 + f2, f1);
+    	return f2;
+    }
 }
